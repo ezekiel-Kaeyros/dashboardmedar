@@ -1,0 +1,12 @@
+name: medar_dashboard
+title: medar_dashboard
+username: winniemafouo
+account: winniemafouo
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11678463
+bundleId: 8458901
+url: https://winniemafouo.shinyapps.io/medar_dashboard/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
