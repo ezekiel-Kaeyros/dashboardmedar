@@ -28,6 +28,14 @@ connection_string = "mongodb+srv://medar-user2:medar-pwd2@medar-db.7c6rlum.mongo
 data <- mongo_fetch$fetch_mongodb(connection_string = connection_string, collection = "reports", db="test")
 
 
+################## Secret Key
+key <- "Anti-D-2024"
+################# define viewer role
+role <- 2
+
+############## Fetch login datas
+login_data <- mongo_fetch$fetch_mongodb(connection_string = connection_string, collection = "users", db="test")
+
 file_data_topic <- paste(path_data, "/", "incidents_description.json", sep="")
 textdata <- jsonlite::fromJSON(file_data_topic)
 # Générer un échantillon aléatoire des indices de textdata

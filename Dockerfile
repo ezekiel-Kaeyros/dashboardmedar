@@ -5,7 +5,7 @@ FROM rocker/shiny
 RUN apt-get update && apt-get install -y openjdk-8-jdk
 
 # Installation des dépendances R spécifiées
-RUN R -e "install.packages(c('dplyr', 'htmlwidgets', 'jsonlite', 'keyring', 'tidyr', 'shiny.fluent', 'leaflet', 'leaflet.minicharts', 'magrittr', 'plotly', 'ggplot2', 'reactable', 'rhino', 'rjson', 'sf', 'shiny', 'shiny.router', 'shinyjs', 'shinymanager', 'shinythemes', 'tm', 'wordcloud2', 'wordcloud', 'lubridate', 'stringr', 'upstartr', 'mongolite', 'glue', 'janitor', 'topicmodels', 'LDAvis', 'quanteda', 'servr', 'readxl', 'packrat', 'rsconnect', 'Rmpfr'))"
+RUN R -e "install.packages(c('dplyr', 'ggplot2', 'glue', 'htmlwidgets', 'httr', 'jsonlite', 'keyring', 'LDAvis', 'leaflet', 'leaflet.minicharts', 'lubridate', 'magrittr', 'mongolite', 'plotly', 'quanteda', 'reactable', 'readxl', 'rhino', 'rjson', 'Rmpfr', 'servr', 'sf', 'shiny', 'shiny.fluent', 'shiny.router', 'shinyjs', 'shinymanager', 'shinythemes', 'slam', 'stats', 'stringr', 'tidyr', 'tm', 'topicmodels', 'upstartr', 'wordcloud', 'wordcloud2'))"
 
 # Make a directory in the container
 WORKDIR /app
@@ -24,4 +24,3 @@ EXPOSE 8180
 
 # Run the R Shiny app
 CMD ["R", "-e", "shiny::runApp('/app', host = '0.0.0.0', port = 8180)"]
-

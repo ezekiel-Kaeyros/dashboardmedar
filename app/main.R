@@ -70,14 +70,6 @@ ui <- function(id) {
   #ns <- NS(id)
   fluentPage(
     shinyjs::useShinyjs(),
-    div(style = "float: right;  gap: 0.5rem; margin-top: 28px;",
-        shiny.fluent::DefaultButton.shinyInput("refresh", "Daten aktualisieren",
-                                               iconProps = list(iconName = "Refresh"),
-                                               style = "background-color: #fff; text-decoration:none; padding: 1em 1.5em;
-                            text-align: center; border-color: #000; border-radius: 12px;
-                            border: 1px solid black;
-                           color: #000; font-weight: bold; height:45px;"
-        )),
     div(
       style = "visibility: hidden;",
       downloadButton("download", label = "", verify_fa=FALSE)
@@ -161,4 +153,3 @@ server <- function(id, input, output, session) {
   })
 
 }
-
