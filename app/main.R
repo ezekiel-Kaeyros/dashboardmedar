@@ -80,7 +80,7 @@ ui <- function(id) {
       route("qualitative", layouts$main_layout(qualitative_page$ui("qualitative"))),
       route("compare", layouts$main_layout(compare_page$ui("compare"))),
       route("more_compare", layouts$main_layout(more_compare_page$ui("more_compare"))),
-      route("overview", layouts$main_layout(overview_page$overview_ui("overview"))),
+      #route("overview", layouts$main_layout(overview_page$overview_ui("overview"))),
       route("quantitative_bivariate", layouts$main_layout(quantitative_bivariate_page$ui("quantitative_bivariate"))),
       route("wordcloud", layouts$main_layout(wordcloud_page$wordcloud_ui("wordcloud")))
       #route("qualitative", layouts$main_layout(qualitative_page$ui(ns("qualitative")))),
