@@ -65,17 +65,17 @@ server <- function(id) {
       converted_time <- as.POSIXct(token_json_data$exp, origin="1970-01-01", tz="Africa/Lagos")
 
       if(token_json_data$email %in% import_data$login_data$email & token_json_data$role == import_data$role & converted_time > Sys.time()){
-        Stack(
+       div(style="background-color:#F6F6F6",Stack(
           tokens = list(childrenGap = 10),
           div(style="display: flex;",class="goback_img",
               div(img(src = "Shape.svg")),#horizontal = TRUE,
-              div(class="goback_link", style="margin-left: 5px;",
+              div(class="goback_link", style="margin-left: 10px;",
                   #style="font-weight: bold; margin-left: 6px",
                   shiny.fluent::Link(href=paste("#!/compare?token=", current_token(), sep = ""), "Go back")
               )),
           tags$br(),
           tags$br(),
-          div(style="display: flex;",
+          div(style="display: flex; display: flex; align-items: center; justify-content: center;",
               cards$makeCard(div(class="text1",""
                                  #Text("From ",shiny::textOutput(ns("date1")), "to ", shiny::textOutput(ns("date3")))
               ),
@@ -87,7 +87,7 @@ server <- function(id) {
               cards$makeCard(div(class="text1",""
               ),
               div( uiOutput(ns("table2")))) #overflow: auto #style="max-height: 400px;"
-          ))
+          )))
       } else{
         shiny::h3("Error 500 - Internal Server Error")
       }

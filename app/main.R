@@ -64,6 +64,11 @@ box::use(
 #   "Language"=""
 # )
 
+tags$style("
+           .main{
+              background-color:#000;
+           }
+           ")
 
 #' @export
 ui <- function(id) {

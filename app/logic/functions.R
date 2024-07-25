@@ -35,7 +35,7 @@ generate_barplot <- function(data, text, marker) {
            uniformtext=list(minsize=10, mode='show'),
            xaxis = list(title = "<b> </b>", #font = list(size = 0),
                         # change x-axix size
-                        tickfont = list(size = 11),
+                        tickfont = list(size = 8),
                         # change x-title size
                         titlefont = list(size = 16), #type="date", tickformat="%Y%B",  tickformat = "%b-%Y",
                         tickangle= -45, showgrid = FALSE),
@@ -59,7 +59,7 @@ generate_barplot <- function(data, text, marker) {
       'select2d',#,
       'hoverClosestCartesian',#,
       'hoverCompareCartesian'),
-      scrollZoom = T)
+      scrollZoom = FALSE)
 }
 
 #' @export
@@ -68,11 +68,12 @@ generate_piechart <- function(data, text, color) {
                   values= ~Freq, type="pie",
                   hoverinfo = 'text',
                   textinfo = 'label+percent',
-                  insidetextfont = list(color = '#FFFFFF'),
+                  texttemplate = '<b>%{label}</br></br>%{percent}</b>',
+                  insidetextfont = list(color = '#000',size = 8),
                   text = ~paste(paste(text,":",Var1),
                                 "<br>Number of persons :", Freq,
                                 "<br>Percentage :", pct1),
-                  marker = list(color = color,
+                  marker = list(colors = color,
                                 line = list(color = '#FFFFFF', width = 1),
                                 showlegend = FALSE)) %>%
     layout(title="",
@@ -93,12 +94,12 @@ generate_piechart <- function(data, text, color) {
       'select2d',#,
       'hoverClosestCartesian',#,
       'hoverCompareCartesian'),
-      scrollZoom = T)
+      scrollZoom = FALSE)
 }
 
 #' @export
 generate_groupedbarplot <- function(data, text1,text2){
-  yiord_palette <- c("#FFFFCC", "#FFEDA0", "#FED976", "#FEB24C", "#FD8D3C", "#FC4E2A", "#E31A1C", "#BD0026", "#800026")
+  yiord_palette <- c("#036666", "#14746F", "#248277", "#358F80", "#469D89", "#56AB91", "#67B99A", "#78C6A3", "#88D4AB")
   plotly::plot_ly(data, x = ~Var1, y = ~Freq, color = ~Var2, type = "bar", colors = yiord_palette,
                   text = ~paste(paste(text1,":"), Var1, "<br>Frequency: ", Freq, "<br>",paste(text2,":"), Var2)) %>%
     layout(#title = "Frequency of Different Forms of Discrimination by Age Group",
@@ -120,7 +121,7 @@ generate_groupedbarplot <- function(data, text1,text2){
       'select2d',#,
       'hoverClosestCartesian',#,
       'hoverCompareCartesian'),
-      scrollZoom = T)
+      scrollZoom = FALSE)
 }
 
 #' @export
@@ -128,7 +129,7 @@ generate_table <- function(data, text1, text2) {
   gg<-ggplot(data, aes(Var1, Var2)) +
     geom_tile(aes(fill = Freq)) +
     geom_text(aes(label = round(Freq, 1), text = paste(paste(text1,":"), Var1, "\n",paste(text2,":"), Var2, "\nCount:", Freq))) +
-    scale_fill_gradient(low = "#FED976", high = "red") +
+    scale_fill_gradient(low = "#036666", high = "#88D4AB") +
     labs(#title = "Frequency of Different Forms of Discrimination by Age Group",
       x = text1,#Age Group
       y = text2,#Discrimination
@@ -149,7 +150,7 @@ generate_table <- function(data, text1, text2) {
       'select2d',#,
       'hoverClosestCartesian',#,
       'hoverCompareCartesian'),
-      scrollZoom = T)
+      scrollZoom = F)
 }
 
 #' @export

@@ -1,6 +1,8 @@
 .quantitative_page {
   height: 100%;
   max-width: 100%;
+  background-color: #F6F6F6;
+
 
   &__title {
     font-size: 22px;
@@ -35,7 +37,8 @@
     }
   }
   .middle_bottom {
-      width: 80%;
+      width: 60% !important;
+      margin-right: 300px;
       height: auto;
       margin: auto;
     }

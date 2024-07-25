@@ -45,10 +45,11 @@ server <- function(id) {
       converted_time <- as.POSIXct(token_json_data$exp, origin="1970-01-01", tz="Africa/Lagos")
 
       if(token_json_data$email %in% import_data$login_data$email & token_json_data$role == import_data$role & converted_time > Sys.time()){
-        layouts$quantitative_bivariate_layout(age_discrimination$ui(ns("affected_person")),
+        div(style="background-color:#F6F6F6",
+            layouts$quantitative_bivariate_layout(age_discrimination$ui(ns("affected_person")),
                                               age_influence$ui(ns("age_of_affected_person")),
                                               map_topic$ui(ns("map")),
-                                              gender_discrimination$ui(ns("gender_discrimination")), current_token())
+                                              gender_discrimination$ui(ns("gender_discrimination")), current_token()))
       } else{
         shiny::h3("Error 500 - Internal Server Error")
       }

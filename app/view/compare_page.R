@@ -52,7 +52,7 @@ server <- function(id) {
       converted_time <- as.POSIXct(token_json_data$exp, origin="1970-01-01", tz="Africa/Lagos")
 
       if(token_json_data$email %in% import_data$login_data$email & token_json_data$role == import_data$role & converted_time > Sys.time()){
-        div(class = "compare_page",
+        div(style="background-color:#F6F6F6",div(class = "compare_page",
             div(class="compare_page1",
                 div(class= "compare_page2",
                     tagList(
@@ -67,7 +67,7 @@ server <- function(id) {
                     )
                 )
             )
-        )
+        ))
       } else{
         shiny::h3("Error 500 - Internal Server Error")
       }
