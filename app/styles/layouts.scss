@@ -104,8 +104,14 @@
 }
 
 .head_section{
+  margin:0px;
   display: flex;
   justify-content: space-between;
+  width: 100%;
+}
+
+.layout_qualitative{
+  width: 100vw;
 }
 
 #export_quantitative{

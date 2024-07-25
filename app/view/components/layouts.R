@@ -158,26 +158,10 @@ quantitative_bivariate_layout <- function(tl_card, bl_card,tr_card, br_card, tok
 
 #' @export
 qualitative_layout <- function(card, token) {#mid_card
-  div(#class = "qualitative_page",
-      # div(
-      #   style = "float: right; display: flex; gap: 0.5rem;margin-right:270px;",
-      #   shiny.fluent::Link(href=paste("#!/wordcloud?token=", token, sep = ""),
-      #                      "Siehe Wordcloud",
-      #                      style = "background-color: #000; text-decoration:none; padding: 1em 1.5em;
-      #                       text-align: center; border-color: #fff; border-radius: 12px;
-      #                       border: 1px solid black;
-      #                      color: #fff; font-weight: bold;"),
-      #   shiny.fluent::DefaultButton.shinyInput("refresh", "Daten aktualisieren",
-      #                                          iconProps = list(iconName = "Refresh"),
-      #                                          style = "background-color: #2B8049; text-decoration:none; padding: 1em 1.5em;
-      #                                           border-color: #2B8049; border-radius: 12px; height:50px; top: -15px;
-      #                                           color: #fff; font-weight: bold;"
-      #
-      #   )
-      # ),
+  div(class="layout_qualitative",
     div(class = "head_section",
         h1(class = "quantitative_page__title", ""),
-        div( style = "float: right; display: flex; gap: 0.5rem; margin-top:15px",
+        div( style = " display: flex; gap: 0.5rem; margin-top:15px; padding-right:18px",#float: right;
              div(#style = "float: right;  gap: 0.5rem; margin-top: 10px;",#28px
                shiny.fluent::DefaultButton.shinyInput("refresh", "Daten aktualisieren",
                                                       iconProps = list(iconName = "Refresh"),
@@ -201,7 +185,7 @@ qualitative_layout <- function(card, token) {#mid_card
       div(style = "height:2rem;"),
       h1(""),#class = "qualitative_page__title",
       div(#class = "qualitative_page__content",
-          div(style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;",#class = "qualitative_page_middle",
+          div(style=" width:100%",#class = "qualitative_page_middle",
               card
           )
       )
