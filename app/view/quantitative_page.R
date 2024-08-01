@@ -57,7 +57,7 @@ server <- function(id) {
         layouts$quantitative_page_layout(
         div(style="display: flex;justify-content: space-between;", #class = "head_section",
             #h1(class = "quantitative_page__title", ""), #Quantitative statistics
-            div(style="display: flex;", #gap: 0.1rem; align-items: center; float: right;
+            div(style="display: flex; flex:wrap;", #gap: 0.1rem; align-items: center; float: right;
                 h3(style="margin-left:20px;","Identität auswählen: "),
                 div(style="width: 200px; margin-top: 15px; margin-left:10px",
                     shiny.fluent::Dropdown.shinyInput(ns("filter"),

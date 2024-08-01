@@ -21,7 +21,6 @@ box::use(
   app/view/components/ui/cards
 
 )
-
 box::use(
   app/logic/import_data
 )
@@ -64,8 +63,9 @@ server <- function(id) {
       ############ Detect validity time of token
       converted_time <- as.POSIXct(token_json_data$exp, origin="1970-01-01", tz="Africa/Lagos")
 
-      if(token_json_data$email %in% import_data$login_data$email & token_json_data$role == import_data$role & converted_time > Sys.time()){
-       div(style="background-color:#F6F6F6",Stack(
+      if(token_json_data$email %in% import_data$login_data$email & token_json_data$role == import_data$role &
+         converted_time > Sys.time()){
+        div(style="background-color:#F6F6F6",Stack(
           tokens = list(childrenGap = 10),
           div(style="display: flex;",class="goback_img",
               div(img(src = "Shape.svg")),#horizontal = TRUE,
@@ -75,19 +75,22 @@ server <- function(id) {
               )),
           tags$br(),
           tags$br(),
-          div(style="display: flex; display: flex; align-items: center; justify-content: center;",
-              cards$makeCard(div(class="text1",""
-                                 #Text("From ",shiny::textOutput(ns("date1")), "to ", shiny::textOutput(ns("date3")))
-              ),
-              div(uiOutput(ns("table1")))
-              ),
-              div(class="margin_l"),
-              div(class="line"),
-              div(class="margin_r"),
-              cards$makeCard(div(class="text1",""
-              ),
-              div( uiOutput(ns("table2")))) #overflow: auto #style="max-height: 400px;"
+          div(class="more_compare",
+              #style="display: grid;flex-direction: row;", #align-items: center; justify-content: center;
+              div(class="more_c1",
+                  cards$makeCard(
+                    div(class="text1",""),
+                    div(uiOutput(ns("table1")))
+                  )),
+              #div(class="margin_l"),
+              #div(class="line"),
+              #div(class="margin_r"),
+              div(class="more_c1",
+                  cards$makeCard(
+                    div(class="text1",""),
+                    div( uiOutput(ns("table2")))) )#overflow: auto #style="max-height: 400px;"
           )))
+
       } else{
         shiny::h3("Error 500 - Internal Server Error")
       }
@@ -169,10 +172,10 @@ server <- function(id) {
                             titlefont = list(size = 12),
                             # change x-axix size
                             tickfont = list(size = 12),
-                            ticksuffix = "%", showgrid = FALSE)#,
-               # margin=list(l = 50, r = 0,
-               #             b = 0, t = 35,
-               #             pad = 0)
+                            ticksuffix = "%", showgrid = FALSE),
+               margin=list(l = 50, r = 0,
+                           b = 0, t = 35,
+                           pad = 0)
         ) %>%
         config(displayModeBar = F,
                scrollZoom = T)
@@ -214,10 +217,10 @@ server <- function(id) {
                             titlefont = list(size = 12),
                             # change x-axix size
                             tickfont = list(size = 12),
-                            ticksuffix = "%", showgrid = FALSE)#,
-               # margin=list(l = 50, r = 0,
-               #             b = 0, t = 35,
-               #             pad = 0)
+                            ticksuffix = "%", showgrid = FALSE),
+               margin=list(l = 50, r = 0,
+                           b = 0, t = 35,
+                           pad = 0)
         ) %>%
         config(displayModeBar = F,
                scrollZoom = T)

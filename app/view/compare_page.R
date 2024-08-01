@@ -104,8 +104,8 @@ server <- function(id) {
                     div(
                       style = "display: flex; flex-direction: row; justify-content: space-between;
                       column-gap:8px;",
-                      DatePicker.shinyInput(ns("date3"), value = NULL,placeholder = "Start date"),
-                      DatePicker.shinyInput(ns("date4"), value = NULL,placeholder = "Start date")
+                      DatePicker.shinyInput(ns("date3"), value = NULL,placeholder = "End date"),
+                      DatePicker.shinyInput(ns("date4"), value = NULL,placeholder = "End date")
                     ),
                     tags$br(),
                     tags$br(),
