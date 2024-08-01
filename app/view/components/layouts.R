@@ -147,7 +147,7 @@ qualitative_layout <- function(card, token) {#mid_card
       div(style = "height:2rem;"),
       h1(""),#class = "qualitative_page__title",
       div(#class = "qualitative_page__content",
-          div(style=" width:100%",#class = "qualitative_page_middle",
+          div(#style=" width:100%",#class = "qualitative_page_middle",
               card
           )
       )
