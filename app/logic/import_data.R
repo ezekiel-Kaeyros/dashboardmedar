@@ -223,9 +223,14 @@ options_var <- lapply(seq_along(key_var), function(i) {
 df <- data
 df <- dplyr::mutate_all(df, as.character)
 
+# df <- df %>% dplyr::select("identity", "gender", "age", "organizationType","description","valueDate","startDate" ,"endDate","location","locationOnline","stadtteil",
+#                            "causesOfDiscrimination","typeOfDiscrimination","otherForms","otherFormsYes","formOfQueerphobia","formOfDiscYes",
+#                            "sexualOrientation","haveYouReported","haveYouReportedYes","causesOfDiscriminationFreeField",
+#                            "otherFormsYesFreeField","haveYouReportedYesFreeField1","haveYouReportedYesFreeField2","numberOfEmployees",
+#                            "genderFreeField","createdAt")
+
 df <- df %>% dplyr::select("identity", "gender", "age", "organizationType","description","valueDate","startDate" ,"endDate","location","locationOnline","stadtteil",
-                           "causesOfDiscrimination","typeOfDiscrimination","otherForms","otherFormsYes","formOfQueerphobia","formOfDiscYes",
-                           "sexualOrientation","haveYouReported","haveYouReportedYes","causesOfDiscriminationFreeField",
+                           "causesOfDiscrimination","otherForms","otherFormsYes","haveYouReported","haveYouReportedYes","causesOfDiscriminationFreeField",
                            "otherFormsYesFreeField","haveYouReportedYesFreeField1","haveYouReportedYesFreeField2","numberOfEmployees",
                            "genderFreeField","createdAt")
 
